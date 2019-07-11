@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="/static/style.css">
+<html>
+    <head><title>{{title}}</title></head>
+    <body>
+         <h1>{{title}}</h1>
 
-</head>
-<body>
-    <h1>{{title}}</h1>
+          <form method='POST' action='/likes'>
+              <legend>What do you like? </legend>
+              <ul>
+                <li><input name='likes'></li>
+              </ul>
+              <input type='submit'>
+          </form>
+
+      <p>Things you like:</p>
+         % if likes:
+         <ul>
+             % for like in likes:
+              <li>{{like}}</li>
+             % end
+         </ul>
+         % end
 
 
-</body>
+    </body>
 </html>
